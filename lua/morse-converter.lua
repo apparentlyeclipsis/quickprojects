@@ -1,6 +1,3 @@
--- testing value to make sure it works
-local inputMorse = "- .... . / ...-- .-. -.. / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / ..--- / .-.. .- --.. -.-- / -.. --- --. ..."
-
 -- helpers
 local convertData = {
   ['a'] = ".-",
@@ -39,7 +36,7 @@ local convertData = {
   ['7'] = "--...",
   ['8'] = "---..",
   ['9'] = "----.",
-  ['10'] = "-----",
+  ['0'] = "-----",
   
   [' '] = "/"
 }
@@ -75,11 +72,13 @@ function morseToEnglish(morseString)
   return returnString
 end
 
--- test statements
-print('input (english):')
-print('The 3rd quick brown fox jumps over 2 lazy dogs')
-print('input (morse):')
-print(inputMorse)
-print()
-print('output:')
-print(morseToEnglish(inputMorse))
+-- english to morse
+function englishToMorse(englishString)
+  local returnString = ""
+  
+  for i=1, #englishString do
+    returnString = returnString .. convertData[string.sub(englishString, i, i)] .. " "
+  end
+
+  return returnString
+end
