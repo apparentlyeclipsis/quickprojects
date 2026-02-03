@@ -1,4 +1,7 @@
 -- helpers
+local convertDir
+local inputtedString
+
 local convertData = {
   ['a'] = ".-",
   ['b'] = "-...",
@@ -82,3 +85,26 @@ function englishToMorse(englishString)
 
   return returnString
 end
+
+function main()
+    print("convert from [1] morse to plaintext, or [2] plaintext to morse?")
+    convertDir = io.read()
+    print()
+    if convertDir == '1' then
+        print("input morse string")
+        inputtedString = io.read()
+        print()
+        print("resulting string:")
+        print(morseToEnglish(inputtedString))
+    elseif convertDir == '2' then
+        print("input plaintext string")
+        inputtedString = io.read()
+        print()
+        print("resulting string:")
+        print(englishToMorse(inputtedString))
+    else
+        print("try again :(")
+    end
+end
+
+main()
